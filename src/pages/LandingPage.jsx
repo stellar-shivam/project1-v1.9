@@ -47,7 +47,7 @@ export default function LandingPage() {
 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
 <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary font-space-grotesk" style={{}}>System Live: Protocol 8.4</span>
 </div>
-<h1 className="text-5xl md:text-7xl font-bold font-space-grotesk tracking-tighter leading-[0.9] mb-6" style={{}}>AI Analyzing Actions, Delivering Truth and Evidence <div><font color="#db90ff">Truth and Evidence</font></div></h1>
+<h1 className="text-5xl md:text-7xl font-bold font-space-grotesk tracking-tighter leading-[0.9] mb-6" style={{}}>AI Analyzing Actions, Delivering&nbsp;<div><font color="#db90ff">Truth and Evidence</font></div></h1>
 <p className="text-on-surface-variant text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-manrope" style={{}}>
                     Advanced AI system for identifying suspects using gait, gestures, BMI, and motion behavior. Secure intelligence for high-stakes environments.
                 </p>

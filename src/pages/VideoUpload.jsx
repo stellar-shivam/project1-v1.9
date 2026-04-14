@@ -44,16 +44,18 @@ export default function VideoUpload() {
 <span className="material-symbols-outlined" data-icon="folder_open">folder_open</span>
 <span>Evidence</span>
 </a>
-<a className="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/5 hover:backdrop-blur-md transition-all duration-300 ease-in-out font-headline font-semibold tracking-wide" href="#">
+<Link to="/analysis/dashboard" className="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/5 hover:backdrop-blur-md transition-all duration-300 ease-in-out font-headline font-semibold tracking-wide">
 <span className="material-symbols-outlined" data-icon="dashboard">dashboard</span>
 <span>Dashboard</span>
-</a>
+</Link>
 </nav>
 <div className="px-4 mt-auto mb-6">
+<Link to="/analysis/upload" className="w-full block">
 <button className="w-full flex items-center justify-center gap-2 active:opacity-80 active:scale-[0.98] transition-all group" style={{borderRadius: "8px", padding: "12px 32px", background: "linear-gradient(135deg, rgba(125, 66, 166, 0.4), rgba(29, 26, 32, 0.8))", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(219, 144, 255, 0.3)", boxShadow: "inset 0px 2px 2px rgba(255, 255, 255, 0.1), 0 8px 16px rgba(0, 0, 0, 0.5)"}}>
 <span className="material-symbols-outlined text-white text-[1.5rem]" style={{fontVariationSettings: "'wght' 500"}}>add</span>
 <span className="text-white font-medium">New Analysis</span>
 </button>
+</Link>
 </div>
 <div className="px-3 border-t border-white/5 pt-4 space-y-1">
 <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all duration-300 font-headline font-semibold tracking-wide">
@@ -77,7 +79,7 @@ export default function VideoUpload() {
 <div className="relative group">
 {/*  Outer Glass Boundary  */}
 <div className="absolute -inset-1 bg-gradient-to-b from-primary/30 to-transparent rounded-[2rem] blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
-<div className="relative bg-surface-container-low border border-outline-variant/30 rounded-[2rem] p-12 flex flex-col items-center justify-center min-h-[400px] transition-all duration-500 cursor-pointer">
+<Link to="/analysis/results" className="relative block bg-surface-container-low border border-outline-variant/30 rounded-[2rem] p-12 flex flex-col items-center justify-center min-h-[400px] transition-all duration-500 cursor-pointer hover:bg-surface-container-lowest">
 {/*  Glassmorphism Processing Ring  */}
 <div className="relative mb-10">
 <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl"></div>
@@ -103,7 +105,7 @@ export default function VideoUpload() {
 </div>
 </div>
 </div>
-</div>
+</Link>
 </div>
 {/*  Secondary Actions/Guidelines  */}
 <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">

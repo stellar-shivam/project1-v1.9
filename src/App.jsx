@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import VideoUpload from './pages/VideoUpload.jsx';
 import VideoAnalysis from './pages/VideoAnalysis.jsx';
+import Dashboard from './pages/Dashboard.jsx';
 
 // Account Wrapper to manage states based on URL
 function AccountWrapper() {
@@ -31,6 +32,7 @@ function AnalysisWrapper() {
   return (
     
       <Routes>
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="upload" element={<VideoUpload />} />
         <Route path="results" element={<VideoAnalysis />} />
         <Route path="*" element={<Navigate to="upload" replace />} />

@@ -91,21 +91,21 @@ export default function SignUp() {
 <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">Full Name</label>
 <div className="relative group">
 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">person</span>
-<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all" placeholder="name" type="text" />
+<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-black font-semibold placeholder:text-gray-500 placeholder:font-normal transition-all" placeholder="name" type="text" />
 </div>
 </div>
 <div className="space-y-2">
 <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">EMAIL</label>
 <div className="relative group">
 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">mail</span>
-<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all" placeholder="example@email.com" type="email" />
+<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-black font-semibold placeholder:text-gray-500 placeholder:font-normal transition-all" placeholder="example@email.com" type="email" />
 </div>
 </div>
 <div className="space-y-2">
 <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">Access Key</label>
 <div className="relative group">
 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
-<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all" placeholder="••••••••••••" type="password" />
+<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-black font-semibold placeholder:text-gray-500 placeholder:font-normal transition-all" placeholder="••••••••••••" type="password" />
 </div>
 </div>
 <Link to="/analysis/upload" className="w-full block relative z-10"><button className="w-full py-4 liquid-glass-primary flex items-center justify-center gap-2 font-headline tracking-wide rounded-lg mt-4">

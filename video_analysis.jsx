@@ -1,30 +1,47 @@
-import { motion } from "framer-motion";
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+```html
 
-export default function VideoAnalysis() {
-  useEffect(() => {
-    const reveal = () => {
-      const reveals = document.querySelectorAll(".reveal");
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add("active");
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analysis Page - Vision Trace</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-      }
-    };
-    window.addEventListener("scroll", reveal);
-    reveal();
-    return () => window.removeEventListener("scroll", reveal);
-  }, []);
-
-  return (
-    <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.98 }} transition={{ duration: 0.4, ease: "easeOut" }} className="min-h-screen bg-background text-on-surface">
-      <nav className="fixed top-0 w-full z-50 h-16 bg-surface-container-lowest flex justify-between items-center px-6 border-b border-white/5">
+        .glass-panel {
+            background: rgba(29, 26, 32, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(219, 144, 255, 0.1);
+        }
+        .animate-scan {
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(1000%); }
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #332f35; border-radius: 10px; }
+        
+        .media-control-bar {
+            background: linear-gradient(135deg, rgba(13, 11, 15, 0.9), rgba(106, 0, 162, 0.3));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .pill-btn {
+            box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.05);
+        }
+    </style>
+{/* TopNavBar */}
+<nav className="fixed top-0 w-full z-50 h-16 bg-surface-container-lowest flex justify-between items-center px-6 border-b border-white/5">
 <div className="flex items-center gap-4">
-<Link to="/"><span className="text-xl font-black tracking-tight text-primary uppercase hover:text-white transition-colors cursor-pointer">Vision Trace</span></Link>
+<span className="text-xl font-black tracking-tight text-primary uppercase">Vision Trace</span>
 </div>
 <div className="flex items-center space-x-4">
 <div className="flex items-center gap-2 pl-4 border-l border-white/10">
@@ -39,37 +56,35 @@ export default function VideoAnalysis() {
 <h2 className="font-headline font-semibold tracking-wide text-on-surface">Analyst Hub</h2>
 </div>
 <nav className="flex-1 px-3 space-y-1">
-<Link to="/analysis/upload" className="flex items-center gap-3 px-4 py-3 rounded-xl text-primary bg-primary/10 border-r-2 border-primary transition-all duration-300 ease-in-out font-headline font-semibold tracking-wide" >
+<a className="flex items-center gap-3 px-4 py-3 rounded-xl text-primary bg-primary/10 border-r-2 border-primary transition-all duration-300 ease-in-out font-headline font-semibold tracking-wide" href="#">
 <span className="material-symbols-outlined" data-icon="folder_open">folder_open</span>
 <span>Evidence</span>
-</Link>
-<Link to="/analysis/dashboard" className="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/5 hover:backdrop-blur-md transition-all duration-300 ease-in-out font-headline font-semibold tracking-wide" >
+</a>
+<a className="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/5 hover:backdrop-blur-md transition-all duration-300 ease-in-out font-headline font-semibold tracking-wide" href="#">
 <span className="material-symbols-outlined" data-icon="dashboard">dashboard</span>
 <span>Dashboard</span>
-</Link>
+</a>
 </nav>
 <div className="px-4 mt-auto mb-6">
-<Link to="/analysis/upload" className="w-full block">
 <button className="w-full flex items-center justify-center gap-2 active:opacity-80 active:scale-[0.98] transition-all group" style={{"borderRadius":"8px","padding":"12px 32px","background":"linear-gradient(135deg, rgba(125, 66, 166, 0.4), rgba(29, 26, 32, 0.8))","backdropFilter":"blur(12px)","WebkitBackdropFilter":"blur(12px)","border":"1px solid rgba(219, 144, 255, 0.3)","boxShadow":"inset 0px 2px 2px rgba(255, 255, 255, 0.1), 0 8px 16px rgba(0, 0, 0, 0.5)"}}>
 <span className="material-symbols-outlined text-white text-[1.5rem]" style={{"fontVariationSettings":"'wght' 500"}}>add</span>
 <span className="text-white font-medium">New Analysis</span>
 </button>
-</Link>
 </div>
 <div className="px-3 border-t border-white/5 pt-4 space-y-1">
-<Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all duration-300 font-headline font-semibold tracking-wide" >
+<a className="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all duration-300 font-headline font-semibold tracking-wide" href="#">
 <span className="material-symbols-outlined" data-icon="logout">logout</span>
 <span>Log Out</span>
-</Link>
+</a>
 </div>
 </aside>
 {/* Main Content Canvas */}
-<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }} className="ml-64 mt-16 p-8 h-[calc(100vh-4rem)] overflow-hidden">
+<main className="ml-64 mt-16 p-8 h-[calc(100vh-4rem)] overflow-hidden">
 <div className="grid grid-cols-12 gap-8 h-full max-w-[1600px] mx-auto">
 {/* Left Column: Video & Timeline */}
 <div className="col-span-12 lg:col-span-8 flex flex-col space-y-6 h-full min-h-0">
 {/* Video Player Container */}
-<div className="relative aspect-video rounded-2xl reveal overflow-hidden bg-surface-container-lowest ring-1 ring-white/10 group shadow-2xl flex flex-col border border-primary/20">
+<div className="relative aspect-video rounded-2xl overflow-hidden bg-surface-container-lowest ring-1 ring-white/10 group shadow-2xl flex flex-col border border-primary/20">
 {/* Video Content Area */}
 <div className="relative flex-1 overflow-hidden">
 <img alt="Surveillance footage" className="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQrfwdSBP_OiLHFU9cN8zrVtHFme4WCiD1CZ-zk9AVNN_74gbCz1Ce55_yAoeszgBXfIx85rfKzijuq3X_MGpetXJ-O5MJNEb4PNuClAks3Rgiki_QyWhq5WCtMyZMNkQzetEFnfnkIiR8QoIuyl2Iq5wmn2zzf656frdYueR9d2_KGCtkdJPzihEOYvF47tU5wXRV56nmqRhsprWL-CEMl7aZKiG50Zjoj5miCsGzOi5R3WkK2c0BBYAx39N81l0CpPnOC5xZgARq"/>
@@ -77,12 +92,12 @@ export default function VideoAnalysis() {
 <div className="absolute inset-0 pointer-events-none">
 {/* Skeleton Mockup */}
 <svg className="absolute top-1/4 left-1/3 w-32 h-64 text-primary animate-pulse" viewbox="0 0 100 200">
-<circle cx="50" cy="20" fill="none" r="10" stroke="currentColor" strokeWidth="2" />
-<line stroke="currentColor" strokeWidth="2" x1="50" x2="50" y1="30" y2="100" />
-<line stroke="currentColor" strokeWidth="2" x1="50" x2="20" y1="50" y2="80" />
-<line stroke="currentColor" strokeWidth="2" x1="50" x2="80" y1="50" y2="80" />
-<line stroke="currentColor" strokeWidth="2" x1="50" x2="30" y1="100" y2="170" />
-<line stroke="currentColor" strokeWidth="2" x1="50" x2="70" y1="100" y2="170" />
+<circle cx="50" cy="20" fill="none" r="10" stroke="currentColor" strokeWidth="2" /></circle>
+<line stroke="currentColor" strokeWidth="2" x1="50" x2="50" y1="30" y2="100" /></line>
+<line stroke="currentColor" strokeWidth="2" x1="50" x2="20" y1="50" y2="80" /></line>
+<line stroke="currentColor" strokeWidth="2" x1="50" x2="80" y1="50" y2="80" /></line>
+<line stroke="currentColor" strokeWidth="2" x1="50" x2="30" y1="100" y2="170" /></line>
+<line stroke="currentColor" strokeWidth="2" x1="50" x2="70" y1="100" y2="170" /></line>
 </svg>
 {/* BMI Overlay */}
 <div className="absolute bottom-16 left-1/3 ml-36 glass-panel rounded-lg px-3 py-2 border-l-4 border-primary pointer-events-auto">
@@ -94,7 +109,7 @@ export default function VideoAnalysis() {
 </div>
 </div>
 {/* Redesigned Media Control Bar */}
-<div className="media-control-bar reveal h-16 w-full flex items-center px-6 gap-6 border-t border-white/10 z-20">
+<div className="media-control-bar h-16 w-full flex items-center px-6 gap-6 border-t border-white/10 z-20">
 {/* Left Control Cluster */}
 <div className="flex items-center gap-1 bg-white/5 p-1 rounded-full pill-btn">
 <button className="p-2 hover:bg-white/10 rounded-full transition-colors">
@@ -131,7 +146,7 @@ export default function VideoAnalysis() {
 </div>
 </div>
 {/* Dual-Track Timeline Map (Restructured) */}
-<div className="bg-surface-container-low/50 backdrop-blur-md rounded-2xl reveal p-6 border border-white/5">
+<div className="bg-surface-container-low/50 backdrop-blur-md rounded-2xl p-6 border border-white/5">
 <div className="flex items-center justify-between mb-6">
 <h3 className="font-headline font-bold text-sm tracking-widest uppercase text-on-surface/70">Temporal Evidence Map</h3>
 <span className="text-xs font-mono text-on-surface-variant">00:15:03 / 00:30:04</span>
@@ -156,59 +171,14 @@ export default function VideoAnalysis() {
 </div>
 {/* Right Column: Identity & Behavior Log */}
 <div className="col-span-12 lg:col-span-4 flex flex-col space-y-6 h-full min-h-0">
-{/* Enlarged Active Suspect Profile Card (Convert to UI) */}
-<div className="bg-[#121118] rounded-2xl reveal p-6 border border-white/10 shadow-2xl flex flex-col flex-none h-[45%] relative overflow-y-auto">
-<div className="flex items-center justify-between mb-4">
-<h3 className="font-headline text-lg font-bold" style={{}}>Active Suspect&nbsp;</h3>
-<span className="material-symbols-outlined text-primary" data-weight="fill" style={{}}>verified_user</span>
-</div>
-<div className="flex items-center gap-4 mb-4">
-<div className="w-14 h-14 rounded-xl overflow-hidden ring-2 ring-primary/50 relative shrink-0">
-<img className="w-full h-full object-cover" data-alt="portrait of a man with serious expression against a dark textured wall with dramatic cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt7gH52hYMONvOEPHU3_BhQySQJEidx-rNYs9romMOCxNOrwFPU1qlqKlQvtoNzfOLiR_uWQ0hT_0yPXEa4C3cQQjCYXdW0Bg6UO9KcM-SkAOqHeEoYTVHQ_lJO3XhW27sLP8kHZS77QpUPi3oJj4zFemxZgWEilI2bfY2WRcCK878yJgFeVLz4vlfc3iIvOPvBZ5ZVAxSdlgqgTnKOZkRqPpc_DQCRY3HGZqtJeRNMLfHQBfk5bcVguaEhZ40EG1cJXiQXowO2Pdq" style={{}} />
-<div className="absolute inset-0 bg-primary/10"></div>
-</div>
-<div>
-<div className="text-sm font-headline font-bold" style={{}}>SUBJECT_ID: 8842-X</div>
-<div className="text-[10px] uppercase text-on-surface-variant tracking-tighter" style={{}}>Last Seen: Sector 4 Gatehouse</div>
-</div>
-</div>
-<div className="space-y-4">
-<div>
-<div className="flex justify-between text-[10px] uppercase tracking-widest font-bold mb-1">
-<span className="" style={{}}>RISK SCORE</span>
-<span className="text-primary" style={{}}>20</span>
-</div>
-<input className="w-full h-1 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary" type="range" value="88" readOnly />
-</div>
-<div>
-<div className="flex justify-between text-[10px] uppercase tracking-widest font-bold mb-1">
-<span className="" style={{}}>MOVEMENT</span>
-<span className="" style={{}}>6.32</span>
-</div>
-<input className="w-full h-1 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary" type="range" value="45" readOnly />
-</div>
-<div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/5">
-<div className="p-2 bg-surface-container rounded">
-<div className="text-[8px] uppercase text-on-surface-variant" style={{}}>CONFIDENCE</div>
-<div className="text-xs font-bold" style={{}}>0.913</div>
-</div>
-<div className="p-2 bg-surface-container rounded">
-<div className="text-[8px] uppercase text-on-surface-variant" style={{}}>GESTURE</div>
-<div className="text-xs font-bold" style={{}}>NORMAL</div>
-</div>
-<div className="p-2 bg-surface-container rounded">
-<div className="text-[8px] uppercase text-on-surface-variant" style={{}}>BMI</div>
-<div className="text-xs font-bold" style={{}}>HEAVY</div>
-</div>
-<div className="p-2 bg-surface-container rounded">
-<div className="text-[8px] uppercase text-on-surface-variant" style={{}}>GAIT</div>
-<div className="text-xs font-bold" style={{}}>NORMAL</div>
-</div>
-</div>
+{/* Enlarged Active Suspect Profile Card (Outer container removed) */}
+<div className="bg-[#121118] rounded-2xl p-0 border border-white/10 shadow-2xl flex flex-col overflow-hidden h-fit">
+<div className="w-full flex justify-center items-center overflow-hidden">
+<img alt="Active Suspect Profile" className="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiBLFXaCF7R78JVXnAvBQgmnNqDAe2UQ24yerSiC_Ili7hpKV9rBFMHhKBOkyp7ck-Kox4xmlszeDDUufNJOrTBGkobq_-myCFXJuxFrVK8n9KyhMXAdmxoBUJLxta8ccPUahXgiGYI2Ddh1oFB_zqwLEey-90leoLte5se2iJUaN8sAeBlohPzn4pQwJRCFEdU2x0M9rK0IivDBY-TwuRvZuK-p3wCv496aJg3elDJ8HU1iLh6CES3uDaR88UCkHZaYuK5jGb5SxY"/>
 </div>
 </div>
 {/* Behavior Log */}
-<div className="flex-1 bg-surface-container/30 reveal border border-white/5 rounded-2xl flex flex-col min-h-0 overflow-hidden">
+<div className="flex-1 bg-surface-container/30 border border-white/5 rounded-2xl flex flex-col min-h-0 overflow-hidden">
 <div className="p-5 border-b border-white/5 bg-white/5">
 <h3 className="font-headline font-bold text-sm flex items-center gap-2">
 <span className="material-symbols-outlined text-primary text-xl">analytics</span>
@@ -271,8 +241,5 @@ export default function VideoAnalysis() {
 </div>
 </div>
 </div>
-</motion.main>
-
-    </motion.div>
-  );
-}
+</main>
+```

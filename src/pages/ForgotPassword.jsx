@@ -92,7 +92,7 @@ export default function ForgotPassword() {
 <div className="flex gap-2">
 <div className="relative group flex-grow">
 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">mail</span>
-<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all" placeholder="example@email.com" type="email" />
+<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-black font-semibold placeholder:text-gray-500 placeholder:font-normal transition-all" placeholder="example@email.com" type="email" />
 </div>
 <button className="px-6 py-3.5 bg-surface-container-highest text-primary font-bold text-xs uppercase tracking-widest rounded-lg border border-outline-variant hover:bg-surface-variant transition-all whitespace-nowrap">
                             Send
@@ -103,7 +103,7 @@ export default function ForgotPassword() {
 <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">OTP (ONE-TIME PASSWORD)</label>
 <div className="relative group">
 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">key</span>
-<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all tracking-[0.5em]" maxlength="6" placeholder="••••••" type="text" />
+<input className="w-full bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-2 focus:ring-primary/50 rounded-lg py-3.5 pl-12 pr-4 text-black font-semibold placeholder:text-gray-500 placeholder:font-normal transition-all tracking-[0.5em]" maxLength="6" placeholder="••••••" type="text" />
 </div>
 </div>
 <Link to="/account/signin" className="w-full block relative z-10"><button className="w-full py-4 liquid-glass-primary flex items-center justify-center gap-2 font-headline tracking-wide rounded-lg mt-4">
